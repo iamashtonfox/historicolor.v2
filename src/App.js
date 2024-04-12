@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import './APIs.js';
 import './App.css';
-
+import React, {useEffect, useState} from 'react';
+// import './assets';
+ 
 function App() {
+  // var logoImg = document.createElement('img');
+  // logoImg = historiLogo;
+  // document.getElementById('logo').appendChild(logoImg);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main class="control"
+    >
+      <div class="navbar" id='logo'>
+        {/* <a>
+          <Image src="/assets/histori_logo.svg" alt="Historicolor Logo" width={500} height={2} priority/>
+        </a> */}
+      </div>
+    </main>
     </div>
   );
 }
