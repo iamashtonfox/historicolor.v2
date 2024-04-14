@@ -1,20 +1,6 @@
-.App{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.colors{
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  align-items: center;
-}
-.colorInput{
-  align-items: center;
-  height: 24px;
-  justify-content: space-between;
-  /* margin-top: 5vh;
-  margin-bottom: 5vh; */
-
+body{
+  padding:0;
+  margin:0;
 }
 .navbar {
   text-align: center;
@@ -25,20 +11,51 @@
 .logo{
   background-color: rgba(169, 237, 225, 0.2);
 }
-.game{
-  position: block;
-  display:flex;
-  align-items: left;
+.container{
+  display: inline-flex;
+  flex-direction: row;
+  width:100%;
 }
-.framed{
-  border: 24px solid #6F4E37;
-  min-height: 10%;
+.leftHalf{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 70%;
+  height:100%;
+}
+.rightHalf{
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content:center;
+  width:30%;
+  height:100%;
+}
+.item{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content:end;
+  margin:1%;
+  padding:0;
+}
+.colors{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.frame{
   min-width: 10%;
-  max-height: 35%;
-  max-width: 45%;
-  margin: 1%;
+  min-height:10%;
+  max-width:80%;
+  max-height:70%;
+  border: 24px solid #1635c3;
 }
-
-
-
-
+.input{
+  visibility:hidden;
+  font-weight:bold;
+  padding:4px;
+}
+.button{
+  width: 10vh;
+  height: 6vh;
+  font-weight: bold;
+}
