@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## you might need to run this line in terminal before trying to build:
+
+npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
 ## Available Scripts
 
 In the project directory, you can run:
