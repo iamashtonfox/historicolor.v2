@@ -20,7 +20,9 @@ function App() {
   //consts for playing the game
   const [imgUrl, setImgUrl] = useState('');
   const [topColors, setTopColors] = useState([]);
-  const [colorGuesses, setColorGuesses] = useState({});
+  const [colorGuess, setColorGuess] = useState('');
+  const [colorGuess2, setColorGuess2] = useState('');
+  const [colorGuess3, setColorGuess3] = useState('');
   const [calculatedScore, setCalculatedScore] = useState(0);
   const [circleColor1, setCircleColor1] = useState('#18506e');
   const [circleColor2, setCircleColor2] = useState('#0b2932');
@@ -41,25 +43,28 @@ function App() {
             <div className="colors">
               <div className="item">
                 <Circle color={circleColor1} setColor={setCircleColor1}></Circle>
-                <input className="input" for={circleColor1} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" for={colorGuess} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
                 <Circle color={circleColor2} setColor={setCircleColor2}></Circle>
-                <input className="input" for={circleColor2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
                 <Circle color={circleColor3} setColor={setCircleColor3}></Circle>
-                <input className="input" for={circleColor3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
             </div>
 
           </div>
           <div className="rightHalf">
-            <div className="item">
-              <button className="button">Start Playing!</button>
+            <div className='item item2'>
+              <button className="button button2">Submit Guess</button>
             </div>
-            <div className='item'>
-              <button className="button">Submit Guess</button>
+            <div className="item item2">
+              <button className="button">Start Playing</button>
+            </div>
+            <div className="scoreDisplay" score={calculatedScore} setCalculatedScore={setCalculatedScore}>
+              Score: {calculatedScore}
             </div>
           </div>
         </div>

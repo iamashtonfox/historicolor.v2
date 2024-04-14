@@ -29,6 +29,10 @@ body{
   justify-content:center;
   width:30%;
   height:100%;
+  flex-wrap:wrap;
+  /* background-image:url('./assets/background-gallery.jpeg');
+  background-size:cover;
+  background-repeat:no-repeat; */
 }
 .item{
   display: inline-flex;
@@ -36,6 +40,10 @@ body{
   justify-content:end;
   margin:1%;
   padding:0;
+}
+.item2{
+  flex-direction: row;
+  width:40%;
 }
 .colors{
   display: inline-flex;
@@ -55,7 +63,37 @@ body{
   padding:4px;
 }
 .button{
-  width: 10vh;
-  height: 6vh;
+  width: 25vh;
+  height: 20vh;
   font-weight: bold;
+  font-size: 18px;
+  color:black;
+  border:50%;
+  transition-duration: 0.4s;
+  background: url('./assets/brushstroke.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  border:none;
+}
+.button2{
+  background: url('./assets/brushstroke2.png');
+  background-size:contain;
+  color:black;
+  background-repeat: no-repeat;
+}
+.button:hover{
+  background-color:lightgray;
+  cursor:grab;
+}
+.button:active{
+  cursor:grabbing;
+}
+.scoreDisplay{
+  display: inline-flex;
+  justify-content:center;
+  flex-direction:column;
+  height:20%;
+  font-size: 24px;
+  font-weight: bold;
+
 }
