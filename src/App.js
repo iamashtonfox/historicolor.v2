@@ -3,6 +3,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react';
 import logo from './assets/HistoricolorLogo.svg';
 import starry from './assets/starry_night.jpg';
+import { getRandomArtworkUrl } from './APIs.js';
 
 
 const Circle = ({ color, setColor }) => (
@@ -44,6 +45,7 @@ function App() {
     setColorGuess('')
     setColorGuess2('')
     setColorGuess3('')
+    console.log(imgUrl)
   }, [imgUrl])
 
   return (
@@ -75,15 +77,24 @@ function App() {
           </div>
           <div className="rightHalf">
             <div className='item item2'>
-              <button className="button button2">Submit Guess</button>
+              <button className="button button2" conClick={() => {
+                toggleVisibility('startButton');
+              }}>Submit Guess</button>
             </div>
             <div className="item item2">
               <button id="startButton" className="button" onClick={() => {
+                const imgLinkPromise = getRandomArtworkUrl();
+                imgLinkPromise.then(imgLink => {
+                  setImgUrl(imgLink);
+                  console.log(imgUrl);
+                }).catch(error => {
+                  console.error("Error fetching artwork URL:", error);
+                });
                 toggleVisibility('startButton');
-                toggleVisibility('startButton')//this has to happen twice because of rendering
-               toggleVisibility("input");
-               toggleVisibility('input2');
-               toggleVisibility('input3');
+                toggleVisibility('startButton');//this has to happen twice because of rendering
+                toggleVisibility("input");
+                toggleVisibility('input2');
+                toggleVisibility('input3');
               }}>Start Playing</button>
             </div>
             <div className="scoreDisplay" score={calculatedScore} setCalculatedScore={setCalculatedScore}>
