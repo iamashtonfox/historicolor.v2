@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import logo from './assets/HistoricolorLogo.svg';
 import starry from './assets/starry_night.jpg';
 
+
 const Circle = ({ color, setColor }) => (
   <div style={{
     width: '17vh',
@@ -17,9 +18,9 @@ const Circle = ({ color, setColor }) => (
  
 function App() {
 
+  
   //consts for playing the game
   const [imgUrl, setImgUrl] = useState('');
-  const [topColors, setTopColors] = useState([]);
   const [colorGuess, setColorGuess] = useState('');
   const [colorGuess2, setColorGuess2] = useState('');
   const [colorGuess3, setColorGuess3] = useState('');
@@ -28,6 +29,12 @@ function App() {
   const [circleColor2, setCircleColor2] = useState('#0b2932');
   const [circleColor3, setCircleColor3] = useState('#cbdba6');
   //these circles are initialized at first to the most common colors in the starry night, to give the user some context to the nature of the game
+  
+  useEffect(() => {
+    setColorGuess('')
+    setColorGuess2('')
+    setColorGuess3('')
+  }, [imgUrl])
 
   return (
     <main>
@@ -38,20 +45,20 @@ function App() {
         <div className="container">
           <div className="leftHalf">
             <div className="item">
-              <img className="frame" src={starry}></img>
+              <img className="frame" src={imgUrl ? imgUrl : starry}></img>
             </div>
             <div className="colors">
               <div className="item">
-                <Circle color={circleColor1} setColor={setCircleColor1}></Circle>
-                <input className="input" for={colorGuess} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <Circle color={circleColor1}></Circle>
+                <input className="input" id="input" for={colorGuess} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
-                <Circle color={circleColor2} setColor={setCircleColor2}></Circle>
-                <input className="input" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <Circle color={circleColor2}></Circle>
+                <input className="input" id="input" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
-                <Circle color={circleColor3} setColor={setCircleColor3}></Circle>
-                <input className="input" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <Circle color={circleColor3}></Circle>
+                <input className="input" id="input" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
             </div>
 
@@ -61,7 +68,7 @@ function App() {
               <button className="button button2">Submit Guess</button>
             </div>
             <div className="item item2">
-              <button className="button">Start Playing</button>
+              <button className="button" onClick={() => document.getElementById('input').setVi}>Start Playing</button>
             </div>
             <div className="scoreDisplay" score={calculatedScore} setCalculatedScore={setCalculatedScore}>
               Score: {calculatedScore}

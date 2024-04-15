@@ -55,10 +55,9 @@ body{
   min-height:10%;
   max-width:80%;
   max-height:70%;
-  border: 24px solid #1635c3;
+  border: 24px solid #6F4E37;
 }
 .input{
-  visibility:hidden;
   font-weight:bold;
   padding:4px;
 }
