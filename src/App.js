@@ -15,9 +15,19 @@ const Circle = ({ color, setColor }) => (
     margin: '10px'
   }} />
 );
- 
-function App() {
 
+
+function App() {
+  
+  function toggleVisibility(component){
+    var element = document.getElementById(component).style;
+    console.log(element.visibility);
+    if(element.visibility == 'hidden' || element.visibility == ''){
+      element.visibility = 'visible';
+    }else{
+      element.visibility = 'hidden';
+    }
+  }
   
   //consts for playing the game
   const [imgUrl, setImgUrl] = useState('');
@@ -54,11 +64,11 @@ function App() {
               </div>
               <div className="item">
                 <Circle color={circleColor2}></Circle>
-                <input className="input" id="input" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" id="input2" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
                 <Circle color={circleColor3}></Circle>
-                <input className="input" id="input" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" id="input3" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
             </div>
 
@@ -68,7 +78,13 @@ function App() {
               <button className="button button2">Submit Guess</button>
             </div>
             <div className="item item2">
-              <button className="button" onClick={() => document.getElementById('input').setVi}>Start Playing</button>
+              <button id="startButton" className="button" onClick={() => {
+                toggleVisibility('startButton');
+                toggleVisibility('startButton')//this has to happen twice because of rendering
+               toggleVisibility("input");
+               toggleVisibility('input2');
+               toggleVisibility('input3');
+              }}>Start Playing</button>
             </div>
             <div className="scoreDisplay" score={calculatedScore} setCalculatedScore={setCalculatedScore}>
               Score: {calculatedScore}

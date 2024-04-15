@@ -60,6 +60,7 @@ body{
 .input{
   font-weight:bold;
   padding:4px;
+  visibility:hidden;
 }
 .button{
   width: 25vh;
