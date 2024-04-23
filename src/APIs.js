@@ -1,6 +1,7 @@
 export async function getRandomArtworkUrl(fields = ["id", "title", "artist_id", "artist_title", "image_id"]) {
     try {
-        const seed = await getRandomInt(250);
+        const seed = await getRandomInt(0, 250);
+        console.log("Image index ID: " + seed);
         const queryParams = { fields: fields.join(",") };
         const response = await fetch(
             `https://api.artic.edu/api/v1/artworks/search?size=1&from=${seed}`,
@@ -24,7 +25,9 @@ export async function getRandomArtworkUrl(fields = ["id", "title", "artist_id", 
   }
 function getRandomInt(min, max) {
     min = Math.ceil(min);
+    // console.log("min: " + min);
     max = Math.floor(max);
+    // console.log("max: " + max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
   

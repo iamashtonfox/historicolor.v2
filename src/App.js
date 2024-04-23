@@ -22,7 +22,7 @@ function App() {
   
   function toggleVisibility(component){
     var element = document.getElementById(component).style;
-    console.log(element.visibility);
+    // console.log(element.visibility);
     if(element.visibility == 'hidden' || element.visibility == ''){
       element.visibility = 'visible';
     }else{
@@ -50,10 +50,10 @@ function App() {
 
   return (
     <main>
-      <div class="navbar">
+      <div className="navbar">
         <img className="logo" src={logo} alt="Logo"/>
       </div>
-      <body>
+      <div>
         <div className="container">
           <div className="leftHalf">
             <div className="item">
@@ -62,22 +62,22 @@ function App() {
             <div className="colors">
               <div className="item">
                 <Circle color={circleColor1}></Circle>
-                <input className="input" id="input" for={colorGuess} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" id="input" htmlFor={colorGuess} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
                 <Circle color={circleColor2}></Circle>
-                <input className="input" id="input2" for={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" id="input2" htmlFor={colorGuess2} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
               <div className="item">
                 <Circle color={circleColor3}></Circle>
-                <input className="input" id="input3" for={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
+                <input className="input" id="input3" htmlFor={colorGuess3} type="text" maxLength={6} placeholder="Enter hex code..."></input>
               </div>
             </div>
 
           </div>
           <div className="rightHalf">
             <div className='item item2'>
-              <button className="button button2" conClick={() => {
+              <button className="button button2" onClick={() => {
                 toggleVisibility('startButton');
               }}>Submit Guess</button>
             </div>
@@ -86,7 +86,6 @@ function App() {
                 const imgLinkPromise = getRandomArtworkUrl();
                 imgLinkPromise.then(imgLink => {
                   setImgUrl(imgLink);
-                  console.log(imgUrl);
                 }).catch(error => {
                   console.error("Error fetching artwork URL:", error);
                 });
@@ -97,12 +96,12 @@ function App() {
                 toggleVisibility('input3');
               }}>Start Playing</button>
             </div>
-            <div className="scoreDisplay" score={calculatedScore} setCalculatedScore={setCalculatedScore}>
+            <div className="scoreDisplay" score={calculatedScore}>
               Score: {calculatedScore}
             </div>
           </div>
         </div>
-      </body>
+      </div>
     </main>
   );
 }
