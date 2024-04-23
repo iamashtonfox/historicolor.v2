@@ -1,3 +1,5 @@
+import {Palette} from 'color-thief-react';
+
 export async function getRandomArtworkUrl(fields = ["id", "title", "artist_id", "artist_title", "image_id"]) {
     try {
         const seed = await getRandomInt(0, 250);
@@ -23,6 +25,9 @@ export async function getRandomArtworkUrl(fields = ["id", "title", "artist_id", 
       throw error; // Re-throwing the error for handling at the caller side if needed
     }
   }
+export async function getArtworksColors(imgLink, numColors){
+
+}
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     // console.log("min: " + min);

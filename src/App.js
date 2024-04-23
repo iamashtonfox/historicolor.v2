@@ -48,6 +48,7 @@ function App() {
     console.log(imgUrl)
   }, [imgUrl])
 
+  
   return (
     <main>
       <div className="navbar">
